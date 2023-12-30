@@ -1,0 +1,61 @@
+﻿{
+    "GlobalConfiguration": {
+        "BaseUrl": "{Scheme}://{ServiceHost}:{ServicePort}"
+    },
+    "Routes": [
+        {
+            "UpstreamPathTemplate": "/gateway/game/generate/{mode}",
+            "UpstreamHttpMethod": [ "Get" ],
+            "DownstreamPathTemplate": "/api/v1/game/generate/{mode}",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7278
+                }
+            ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer"
+            }
+        },
+        {
+            "UpstreamPathTemplate": "/gateway/result/save",
+            "UpstreamHttpMethod": [ "Post" ],
+            "DownstreamPathTemplate": "/api/v1/result/save",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7202
+                }
+            ],
+            "AuthenticationOptions": {
+                "AuthenticationProviderKey": "Bearer"
+            }
+        },
+        {
+            "UpstreamPathTemplate": "/gateway/auth/register",
+            "UpstreamHttpMethod": [ "Post" ],
+            "DownstreamPathTemplate": "/api/v1/auth/register",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7176
+                }
+            ]
+        },
+        {
+            "UpstreamPathTemplate": "/gateway/auth/login",
+            "UpstreamHttpMethod": [ "Post" ],
+            "DownstreamPathTemplate": "/api/v1/auth/login",
+            "DownstreamScheme": "https",
+            "DownstreamHostAndPorts": [
+                {
+                    "Host": "localhost",
+                    "Port": 7176
+                }
+            ]
+        }
+    ]
+}
